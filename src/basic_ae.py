@@ -3,17 +3,18 @@ import random
 from keras import datasets, models
 from classes.Basic import Autoencoder
 
-# loads the test data
+# Carrega os dados para teste do FASHION MNIST
 (_, _), (x_test, _) = datasets.fashion_mnist.load_data()
 
+# Normaliza os dados: [0, 255] => [0, 1]
 x_test = x_test.astype('float32') / 255.
 
-# loads the basic autoencoder model and uses it
+# Carrega o modelo treinado previamente
 autoencoder = models.load_model('models/basic_model.keras', custom_objects={'Autoencoder': Autoencoder})
-encoded_imgs = autoencoder.encoder(x_test).numpy()
-decoded_imgs = autoencoder.decoder(encoded_imgs).numpy()
 
-# plots the reconstructed images
+decoded_imgs = autoencoder.call(x_test)
+
+# Faz a "plotagem" de n imagens recontruídas, escolhidas aleatóriamente
 n = 10
 plt.figure(figsize=(20, 4))
 for i in range(n):
