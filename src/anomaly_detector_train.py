@@ -3,7 +3,6 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from classes.AnomalyDetector import AnomalyDetector
 
-
 # Download do dataset de ECGs, usando pandas
 dataframe = pd.read_csv('http://storage.googleapis.com/download.tensorflow.org/data/ecg.csv', header=None)
 raw_data = dataframe.values
