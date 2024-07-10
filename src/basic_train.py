@@ -11,11 +11,11 @@ x_test = x_test.astype('float32') / 255.
 # Define os parâmetros do Autoencoder
 # Formato da entrada e tamanho da camada latente
 shape = x_test.shape[1:]
-latent_dim = 32
+latent_dim = 16
 
 # Instancia o modelo
 autoencoder = Autoencoder(latent_dim, shape)
-# Compila o modelo com função de otimização "adam" e função de perda Eroo Quadrático Médio
+# Compila o modelo com função de otimização "adam" e função de perda Erro Quadrático Médio
 autoencoder.compile(optimizer='adam', loss=losses.MeanSquaredError())
 # Treina o modelo
 autoencoder.fit(

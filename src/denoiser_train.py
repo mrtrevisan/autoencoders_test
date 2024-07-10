@@ -25,7 +25,7 @@ x_test_noisy = tf.clip_by_value(x_test_noisy, clip_value_min=0., clip_value_max=
 
 # Inicializa o modelo
 autoencoder = Denoise()
-# Compila o modelo com função de otimização "adam" e função de perda Eroo Quadrático Médio
+# Compila o modelo com função de otimização "adam" e função de perda Erro Quadrático Médio
 autoencoder.compile(optimizer='adam', loss=losses.MeanSquaredError())
 # Treina o modelo
 autoencoder.fit(
